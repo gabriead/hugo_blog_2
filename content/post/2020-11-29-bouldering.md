@@ -15,6 +15,9 @@ tags:
 title: Bouldering
 ---
 
-
 # Bouldering
-
+```r
+fit = lm(dist ~ speed, data = cars)
+b = coef(summary(fit))
+plot(fit)
+```

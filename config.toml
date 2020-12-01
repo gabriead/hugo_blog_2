@@ -8,6 +8,10 @@ googleAnalytics = ""
 preserveTaxonomyNames = true
 paginate = 5 #frontpage pagination
 hasCJKLanguage = true
+pygmentsCodefences = true
+pygmentsCodefencesGuessSyntax = true
+pygmentsStyle = "monokai"
+
 
 [outputs]
 home = ["HTML", "RSS", "Algolia"]
@@ -54,7 +58,7 @@ home = ["HTML", "RSS", "Algolia"]
   #reward = true 
   # reward_guide = "如果这篇文章对你有用,请随意打赏" 
 
-  #friends = true
+  friends = true
   bookmarks = false
   about_me = true
 
@@ -65,11 +69,24 @@ home = ["HTML", "RSS", "Algolia"]
   [params.social]
   rss            = true 
   email          = "adrian-garret-gabriel@web.de"
+  #facebook      = "full profile url in facebook"
+  #googleplus    = "full profile url in googleplus"
+  #twitter       = "full profile url in twitter"
   linkedin       = "https://www.linkedin.com/in/adrian-gabriel-11636b100/"
+  #stackoverflow  = "https://stackoverflow.com/users/yourstackoverflowid"
+  #instagram     = "full profile url in instagram"
   github         = "https://https://github.com/gabriead"
-  xing          =  "https://www.xing.com/profile/Adrian_Gabriel4/cv"
+  #wechat         = "your wechat qr code image"
+#  medium         = "full profile url in medium"
+  #pinterest     = "full profile url in pinterest"
+  #reddit        = "full profile url in reddit"
+  #gitlab        = "full profile url in gitlab"
+  #mastodon      = "full profile url in mastodon"
+  #keybase       = "full profile url in keybase"
+  #xing          = "https://www.xing.com/profile/yourxingid"
+  #git           = "full profile url for git user"
   
-  #[[params.friend_link]]
+  [[params.friend_link]]
   #title = "Linda的博客"
   #href =  "https://zhaozhihan.com"
 
@@ -77,21 +94,22 @@ home = ["HTML", "RSS", "Algolia"]
   #title =  "Martin Fowler"
   #href =  "https://martinfowler.com"
   [[params.bookmark_link]]
-  #title = "ServiceMesher"
-  #href =  "http://www.servicemesher.com"
+  title = "ServiceMesher"
+  href =  "http://www.servicemesher.com"
   [[params.bookmark_link]]
-  #title =  "Pxhere"
-  #href = "https://pxhere.com"
+  title =  "Pxhere"
+  href = "https://pxhere.com"
   [[params.bookmark_link]]
-  #title = "unsplash"
-  #href = "https://unsplash.com"
+  title = "unsplash"
+  href = "https://unsplash.com"
   
   [[params.addtional_menus]]
   title =  "CLIMBING"
-  href =  "/top/climbing/"
+  href =  "/top/books/"
   [[params.addtional_menus]]
   title =  "ABOUT"
   href =  "/top/about/"
+
 
 [outputFormats.Algolia]
 baseName = "algolia"
@@ -104,8 +122,11 @@ vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink"]
 params = ["categories", "tags"] 
 
 [markup]
+ defaultMarkdownHandler = "goldmark"
   [markup.tableOfContents]
     endLevel = 2
     startLevel = 1
   [markup.highlight]
-    style = "dracula"
+
+  [markup.goldmark.renderer]
+    unsafe = true

@@ -1,0 +1,222 @@
+---
+URL: /2020/12/02/python/
+author: Adrian Gabriel
+categories:
+- About
+- R
+date: "2020-12-01 09:00:00"
+description: Python
+excerpt: Python
+image: "img/blog.jpg"
+published: true
+subtitle: Python
+tags:
+- R
+- Statistics
+- Data Science
+title: Python
+output:
+  html_document:
+    keep_md: true
+    toc_float: true
+    toc: true
+    toc_depth: 3.0
+    code_download: true
+    theme: paper
+    highlight: kate
+---
+
+
+# Datatypes
+## `Integer`
+In Python an `int` can hold abritrarily big numbers and there is no difference between a signed or
+unsigned value as the example shows.
+
+```{python}
+3423489032 * 3498234
+````
+You can use `type` to check the type of a given variable
+
+```{python}
+type(3423489032)
+````
+```{python}
+type('I am Adrian')
+````
+## Operators
+The operators in Python are very similar to the ones in `Java` for instance.
+I want to point out the ones that are different which are the logical operators.
+### Logical Operators
+* not
+* and
+* or
+
+```{python}
+a = True
+b = False
+c = True
+
+print(a and b)
+print(a and c)
+````
+```{python}
+
+d = False
+e = False
+
+def someFunc(a, c):
+  
+  if(a==True and not(c)):
+    print("evaluating to True")
+  elif(a or c):
+    print("evaluating either or")
+  else:
+    print("evaluating to false")
+
+someFunc(a, not c)
+someFunc(a, c)
+someFunc(d, e)
+````
+### Overloading of an operator
+Important to note is that every `operator` can have a different function according
+to how they are defined within an object. This is called overloading.
+
+
+## `Floats`
+Floating point numbers are called `floats` in programming. They are stored as sequence
+of bits. Therefore they can loose precision. A division will always result in a float
+ 
+```{python}
+5/3
+print("type is:", type(5/3))
+````
+If you use a dot at the end of the number it will be interpreted as a float even if it's an integer.
+```{python}
+5. + 1
+print("type is:", type(5.))
+````
+## `Booleans`
+In Boolean Algebra there are only two values present: `True` and `False`. These two values are also represented as 0 and 1.
+They can be used with the operators we discussed earlier. Here are some examples
+
+```{python}
+True and True
+1 and 1
+False or True
+0 or 1
+True and not False
+1 and not 0
+````
+
+### Laziness of evaluation
+It is important to know that python evaluates `and`, `or` and `not` in a lazy manor.
+Also known as boolean shortcut. That means if the left operand already holds the result
+than the left one is ignored. This is always the case for the conjunction with `and`.
+If the left value is already False python will automatically evaluate to False.
+
+```{python}
+False and False
+````
+## `Strings`
+
+Strings are used to represent characters in Python. They always have to go in between quotes or else they are interpreted as part
+of the syntax.The `String` object has various methods that operat on a given sequence of characters.
+
+```{python}
+a_string = 'I am a string'
+print("Length : ", len(a_string))
+```
+
+### `+` and `*` Operators
+The `+` operator concatenates multiple strings to one.
+
+```{python}
+a_string = 'I am a string'
+b_string = 'and I am a second string'
+
+print("Concatenation : ", a_string+b_string)
+```
+On the other hand causes the `*` operator to concatenate the exact same string multiple times.
+```{python}
+a_string = 'Multiply me '
+n = 5
+print("Concatenation of the same string n-times: ", a_string*n)
+```
+
+### `in` Operator
+The `in` operator checks if a single char or a sequence of chars is contained within a string.
+
+```{python}
+a_string = 'search'
+b_string = 'I am contained in the search'
+
+print("Is in ? : ", a_string in b_string)
+print("Is not in ? : ", a_string not in b_string)
+```
+The same behavior is true for a list of strings.
+
+```{python}
+a_string = 'search'
+b_string = ['I', 'am', 'contained', 'in', 'the', 'search']
+
+print("Is in ? : ", a_string in b_string)
+```
+But it is not true for comparing to lists of strings.
+```{python}
+a_string = ['I', 'am', 'contained', 'in', 'the', 'search']
+b_string = ['I', 'am', 'contained', 'in', 'the', 'search']
+
+print("Is in ? : ", a_string in b_string)
+```
+## Various methods on `Strings`
+
+### `dir` commmand
+In order to get an extensive list of all available functions for the class of string you can use the `dir` command.
+```{python}
+dir(str)
+```
+
+It returns a list of all functions that can be called on a string. The functions that start with `__` are called magic functions. They implement various operators such as
+'__add__' and '__mul__'. We have already talked about them in a previous section.    
+Let's checkout some of the other functions.
+
+### `endswith`
+This method checks if a string ends with the characters of another string.
+```{python}
+a_string = 'some random string'
+
+# endswith
+print('ends with?:',  a_string.endswith('string'))
+print('ends with?:',  a_string.endswith('elefant'))
+```
+It's important to understand that some of the methods are only available with strings and are not part of the python namespace. I will show you what I mean by that
+
+```{python}
+print('Available in string namespace ?', type(str.endswith))
+```
+This example shows you that `endswith` is only a valid function when applied to strings.
+
+### `replace`
+As the name suggests the `replace` method replaces a single character or a set of chars within a string. It takes two arguemtns. The first argument is
+the string that should be replaced the second is the sequence that should be there instead.
+Let's see how it works in action.
+
+```{python}
+a_string = 'abbbbbbc'
+print('Replace b with x', a_string.replace('b', 'x'))
+```
+### `split`
+In order to dive a string at a given character you can use the `split` method. It takes the delimiter as a parameter and returns a list of single chars.
+Here is an example.
+
+```{python}
+a_string = 'Those | are | different | words'
+print('Split at |', a_string.split('|'))
+```
+
+It also works without a specific delimiter. But I think this only works for whitespaces in between the characters.
+```{python}
+a_string = 'Those are different words'
+print('Split', a_string.split())
+```
+
