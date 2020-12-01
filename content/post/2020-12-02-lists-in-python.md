@@ -12,10 +12,10 @@ image: "img/blog.jpg"
 published: true
 subtitle: The fundamentals of lists
 tags:
-- R
-- Statistics
+- Python
+- Programming
 - Data Science
-title: "2020-12-01-lists-in-python"
+title: "Lists in python"
 output:
   html_document:
     keep_md: true
