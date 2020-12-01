@@ -8,7 +8,7 @@ categories:
 date: "2020-12-01 09:00:00"
 description: Learn about references in python
 excerpt: Python
-image: "img/blog.jpg"
+image: "img/taghia.jpg"
 published: true
 subtitle: The fundamentals of references
 tags:
