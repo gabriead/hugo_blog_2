@@ -4,7 +4,7 @@ author: Adrian Gabriel
 categories:
 - Python
 date: "2020-12-01 09:00:00"
-description: Learn about data types Python
+description: Learn about data types in Python
 excerpt: Python
 image: "img/taghia.jpg"
 published: true
