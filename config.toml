@@ -3,7 +3,7 @@ title = "Hi. I am Adrian. Welcome to my journey."
 theme = "hugo-theme-cleanwhite"
 languageCode = "en-us"
 # Enable comments by entering your Disqus shortname
-disqusShortname = "@disqus_tbNju10cHb"
+disqusShortname = "disqus_tbNju10cHb"
 googleAnalytics = ""
 preserveTaxonomyNames = true
 paginate = 5 #frontpage pagination
