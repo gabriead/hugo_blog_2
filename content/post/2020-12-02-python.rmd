@@ -2,8 +2,7 @@
 URL: /2020/12/02/python/
 author: Adrian Gabriel
 categories:
-- About
-- R
+- Python
 date: "2020-12-01 09:00:00"
 description: Python
 excerpt: Python
