@@ -3,8 +3,7 @@
 URL: /2020/12/02/lists-in-python/
 author: Adrian Gabriel
 categories:
-- About
-- R
+- Python
 date: "2020-12-01 09:00:00"
 description: Learn about list as a data structure
 excerpt: Python
@@ -14,7 +13,7 @@ subtitle: The fundamentals of lists
 tags:
 - Python
 - Data Science
-title: "2020-12-01-lists-in-python"
+title: "Lists in Python"
 output:
   html_document:
     keep_md: true
