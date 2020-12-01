@@ -8,12 +8,11 @@ categories:
 date: "2020-12-01 09:00:00"
 description: Learn about list as a data structure
 excerpt: Python
-image: "img/blog.jpg"
+image: "img/taghia.jpg"
 published: true
 subtitle: The fundamentals of lists
 tags:
-- R
-- Statistics
+- Python
 - Data Science
 title: "2020-12-01-lists-in-python"
 output:

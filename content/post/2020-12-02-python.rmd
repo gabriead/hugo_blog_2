@@ -7,14 +7,13 @@ categories:
 date: "2020-12-01 09:00:00"
 description: Python
 excerpt: Python
-image: "img/blog.jpg"
+image: "img/taghia.jpg"
 published: true
 subtitle: Python
 tags:
-- R
-- Statistics
-- Data Science
-title: Python
+- Python
+- Software Engineering
+title: Introduction to data types in Python
 output:
   html_document:
     keep_md: true
