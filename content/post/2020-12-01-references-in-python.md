@@ -13,8 +13,8 @@ published: true
 subtitle: The fundamentals of references
 tags:
 - Python
-- Data Science
-title: "2020-12-01-References-in-Python"
+- Software Engineering
+title: "References in Python"
 output:
   html_document:
     keep_md: true
