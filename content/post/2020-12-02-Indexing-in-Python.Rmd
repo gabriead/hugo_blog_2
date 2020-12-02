@@ -95,8 +95,20 @@ Let's solve some exercises.
 ````{python}
 s = "Das enthaelt kein icks"
 print(len(s))
-print("Last four letters: {} ".format(s[:17:-1]))
-print("Last four letters: {} ".format(s[21:17:-1]))
-print("Last four letters: {} ".format(s[:-4]))
-print("Last four letters: {} ".format(s[:11:1]))
+print("Last four letters in reverse: {} ".format(s[:17:-1]))
+print("Last four letters: {} ".format(s[18::1]))
+print("Last four letters: {} ".format(s[-4:]))
+print("First ten letters: {} ".format(s[:11:1]))
 ```
+
+
+````{python}
+
+satz = "Hallo Welt ich lebe hier auf der Erde und bin glücklich"
+
+print("First three letters: {} ".format(satz.split()[0][0:3]))
+print("First three words: {} ".format(satz.split()[0:3]))
+print("Last two words: {} ".format(satz.split()[-2:]))
+print("Last two words: {} ".format(satz.split()[-2][-2:]))
+```
+
