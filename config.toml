@@ -20,7 +20,7 @@ home = ["HTML", "RSS", "Algolia"]
   header_image = "img/taghia.jpg"
   SEOTitle = "Adrian blogs"
   description = ""
-  keyword = "Microservice, Data Science, Machine Learning"
+  keyword = "Microservice, Data Science, Machine Learning, Python, R, Shiny"
   slogan = ""
 
   image_404 = "img/404-bg.jpg"
@@ -54,9 +54,6 @@ home = ["HTML", "RSS", "Algolia"]
   disqus_proxy = ""
   disqus_site = ""
 
-  #Enable wechat pay & alipay to allow readers send reward money if they like the articles 
-  #reward = true 
-  # reward_guide = "如果这篇文章对你有用,请随意打赏" 
 
   friends = true
   bookmarks = false
@@ -75,7 +72,7 @@ home = ["HTML", "RSS", "Algolia"]
   linkedin       = "https://www.linkedin.com/in/adrian-gabriel-11636b100/"
   #stackoverflow  = "https://stackoverflow.com/users/yourstackoverflowid"
   #instagram     = "full profile url in instagram"
-  github         = "https://https://github.com/gabriead"
+  github         = "https://github.com/gabriead"
   #wechat         = "your wechat qr code image"
 #  medium         = "full profile url in medium"
   #pinterest     = "full profile url in pinterest"

@@ -277,4 +277,3 @@ print("Value of t is {} and value of l is {} ".format(t,l))
 ## Value of t is <class 'NoneType'> and value of l is None
 ```
 
-{{ template "_internal/disqus.html" . }}

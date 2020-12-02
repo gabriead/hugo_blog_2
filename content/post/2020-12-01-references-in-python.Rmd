@@ -1,6 +1,6 @@
 
 ---
-URL: /2020/12/02/lists-in-python/
+URL: /2020/12/02/references-in-python/
 author: Adrian Gabriel
 categories:
 - Python
@@ -24,3 +24,116 @@ output:
     theme: paper
     highlight: kate
 ---
+
+# References
+## References in Python
+In contrast to languages like C++ oder C Python does not allow tow write directly to memory.
+Python uses references to objects that are bound to variables.
+
+### Surprising Behavior
+In this example nothing interesting happens until we print the two lists.
+```{python}
+l = ['Hello', 'World', 'here', 'I', 'am']
+r=l
+r[0] = 1000
+print("list l {}".format(l))
+print("list r {}".format(l))
+print("Address of l {}".format(id(l)))
+print("Address of r {}".format(id(r)))
+````
+By adding an element to r we also mutated l. This comes as kind of a surprise.
+In order to understand what is going on behind the curtain let's take a look at
+what happens in memory. This can be done by using `id`.
+
+```{python}
+y = 0
+x = 2
+print("current address of x: {}".format(id(x)))
+print("current address of y: {}".format(id(y)))
+
+y = x
+print("current address of y  after referencing x: {}".format(id(y)))
+
+y = 4
+
+print("current address of x after y has changed: {}".format(id(x)))
+print("current address of y after new value was assigned: {}".format(id(y)))
+print("current value of x: {}".format(x))
+print("current value of y: {}".format(y))
+````
+We observe that the `id` of y changes after referencing to x and changes again when a
+new value is assigned. The address of x does not change even if the value of y is altered again.
+Let's checkout another example.
+```{python}
+y=x
+x=y
+print("current address of x: {}".format(id(x)))
+print("current address of y: {}".format(id(y)))
+
+x=x+2
+print("current address of x: {}".format(id(x)))
+print("current address of y: {}".format(id(y)))
+````
+It is noteworthy that after incrementing the value of x, the variable is assigned a new id in memory.
+Operators such as `-`, `*` and `/` or `**` **always create a new reference**.
+
+The behavior that we have observed for variables of type `int` is also true for `strings`.
+Watch this.
+
+```{python}
+s='Hello'
+print("current address of s: {}".format(id(s)))
+s=s+str(1)
+print("Value of s: {}".format(s))
+print("current address of s after addition: {}".format(id(s)))
+````
+It is good to know that Python automatically takes care of the 'old' and unused reference and removes it from memory.
+
+## Excercise
+Given two lists `l1` and `l2`. Explain the behavior for each of the possibilities of adding an element.
+```{python}
+l1 = [1,2,3]
+l2 = l1
+
+print("current address of x: {}".format(id(l1)))
+print("current address of y: {}".format(id(l2)))
+
+# Appending an element with the '+' operator
+l2 = l2 + [100]
+l1
+l2
+````
+
+```{python}
+l1 = [1,2,3]
+l2 = l1
+
+print("current address of x: {}".format(id(l1)))
+print("current address of y: {}".format(id(l2)))
+
+# Appending an element by indexing
+l2[2]= 100
+l2
+l1
+````
+
+```{python}
+l1 = [1,2,3]
+l2 = l1
+
+print("current address of x: {}".format(id(l1)))
+print("current address of y: {}".format(id(l2)))
+
+# Appending an element with 'append'
+return_value = l2.append(100)
+l2
+l1
+print("Return value of append {}".format(return_value))
+````
+
+
+## Solutions
+### Excrecise 1
+The `+` operator always creates a new reference. Therfore l2 is assigned with a new reference
+that is different than the one before. `Append` does add an element in situ and does **not**
+create a new reference. Therefore l1 and l2 are still referencing the same `id` in memory.
