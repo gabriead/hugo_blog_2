@@ -5,10 +5,10 @@ categories:
 - Python
 date: "2020-12-01 09:00:00"
 description: Advanced data structures in Python
-excerpt: Tuples in Python
+excerpt: Advanced data strucutres in Python
 image: "img/taghia.jpg"
 published: true
-subtitle: Introduction to advacned data structures in Python
+subtitle: Introduction to advanced data structures in Python
 tags:
 - Python
 - Software Engineering
