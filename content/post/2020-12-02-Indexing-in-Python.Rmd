@@ -1,0 +1,102 @@
+---
+
+URL: 2020-12-02-Indexing-in-Python
+author: Adrian Gabriel
+categories:
+- Python
+date: "2020-12-01 09:00:00"
+description: The art of indexing in Python
+excerpt: The art of indexing in Python
+image: "img/taghia.jpg"
+published: true
+subtitle: Learn about the different ways to use indexing in Python
+tags:
+- Python
+- Software Engineering
+title: Command vs expression in Python
+output:
+  html_document:
+    keep_md: true
+    toc_float: true
+    toc: true
+    toc_depth: 3.0
+    code_download: true
+    theme: paper
+    highlight: kate
+---
+
+# Indexing
+In order to select an element from a sequence you can use different techniques
+in order to achieve that. It can be done by one of the following:
+* selecting a single element
+* selecting a specific group of elements (slicing)
+* selecting a group of elements within a range (extended slicing)
+
+We will clarif each of the techniques by examples.
+
+## Indexing a single element
+```python
+s = "i am a random string"
+print("Selection by indexing: {}".format(s[1]))
+```
+You can also nest the indexing operator. Can you figure out what it will return?
+````{python}
+s = ["Hallo", 1, 2, "another string with words".split(), 10]
+s[3][1][2]
+```
+## Indexing using slicing
+In order to select a specific group of elements within a sequence we can define
+a range of values. We can achieve that by using the `range` function. The range function
+takes a starting and an end parameter that define the range. It **includes the starting point but excludes the end point**. If you ommit a parameter Python will use a default value.
+For the starting position that will be zero and for the end position that will be the position of the last element of the sequence.
+The pattern looks like this: **<Sequenz>[<Startindex>:<Endindex>]**
+I will give you an example.
+
+````{python}
+s = ["Hallo", 1, 2, "another string with words".split(), 10]
+
+print("Slicing of a range selects: {} ".format(s[0:3]))
+print("Slicing of a range selects: {} ".format(s[3:22]))
+
+```
+There are also some shortcuts when you leave away the left or right boundary.
+
+````{python}
+s = ["Hallo", 1, 2, "another string with words".split(), 10]
+
+print("Slicing of a range selects: {} ".format(s[0:]))
+print("Slicing of a range selects: {} ".format(s[:]))
+print("Slicing of a range selects: {} ".format(s[:3]))
+```
+## Indexing using extended slicing
+The pattern looks like this: **<Sequenz>[<Startindex>:<Endindex>:<Schrittweite>]**
+
+````{python}
+s = list(range(20))
+print("extended slicing: {} ".format(s[0:5:1]))
+print("extended slicing: {} ".format(s[0:6:3]))
+```
+## Indexing using negative indices
+You can iterate in reverse by using a **negative** index. Let's look at an example.
+
+````{python}
+s = [1,2,3,4,5]
+print("Slicing of extended slicing: {} ".format(s[-1]))
+print("Slicing of extended slicing: {} ".format(s[:-1]))
+print("Slicing of extended slicing: {} ".format(s[::-1]))
+print("Slicing of extended slicing: {} ".format(s[4::-1]))
+print("Slicing of extended slicing: {} ".format(s[3:1:-1]))
+print("Slicing of extended slicing: {} ".format(s[3:1:-2]))
+print("Slicing of extended slicing: {} ".format(s[::-2]))
+```
+## Excercises
+Let's solve some exercises.
+
+````{python}
+s = "Das enthaelt kein icks"
+print(len(s))
+print("Last four letters: {} ".format(s[:17:-1]))
+print("Last four letters: {} ".format(s[21:17:-1]))
+print("Last four letters: {} ".format(s[:-4]))
+print("Last four letters: {} ".format(s[:11:1]))
+```

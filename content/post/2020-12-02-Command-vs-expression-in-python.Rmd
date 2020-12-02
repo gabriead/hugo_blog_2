@@ -13,7 +13,6 @@ subtitle: Learn about the difference between a command an expression in Python
 tags:
 - Python
 - Software Engineering
-- Advanced data structures
 title: Command vs expression in Python
 output:
   html_document:
