@@ -1,0 +1,34 @@
+---
+URL: 2020/12/02/Functional/Programming/in/Python
+author: Adrian Gabriel
+categories:
+- Python
+date: "2020-12-01 09:00:00"
+description: The art of functional programming in Python
+excerpt: The art of functional programming in Python
+image: "img/taghia.jpg"
+published: true
+subtitle: Learn about the elegant ways of functional programming in Python
+tags:
+- Python
+- Software Engineering
+- Functional Programming
+title:  The art of functional programming in Python
+output:
+  html_document:
+    keep_md: true
+    toc_float: true
+    toc: true
+    toc_depth: 3.0
+    code_download: true
+    theme: paper
+    highlight: kate
+---
+
+## Kontrollaufgabe 1.7
+
+```{python}
+
+
+
+```
