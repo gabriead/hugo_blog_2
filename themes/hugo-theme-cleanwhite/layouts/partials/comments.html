@@ -3,10 +3,10 @@
 <section id="comments">	<script>
   {{ template "_internal/disqus.html" . }}	(function() {
 </section>	var d = document, s = d.createElement('script');
-{{ end }}	s.src = 'https://disqus_tbNju10cHb.disqus.com/embed.js';
+s.src = 'https://disqus_tbNju10cHb.disqus.com/embed.js';
 s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
-})();
+});
 </script>
 {{ else if .Site.DisqusShortname }}
 {{ template "_internal/disqus.html" . }}
