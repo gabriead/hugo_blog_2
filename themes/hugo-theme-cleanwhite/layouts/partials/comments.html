@@ -3,11 +3,10 @@
 <section id="comments">	<script>
   {{ template "_internal/disqus.html" . }}	(function() {
 </section>	var d = document, s = d.createElement('script');
-s.src = 'https://disqus_tbNju10cHb.disqus.com/embed.js';
+{{ end }}	s.src = 'https://disqus_tbNju10cHb.disqus.com/embed.js';
 s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 });
 </script>
-{{ else if .Site.DisqusShortname }}
-{{ template "_internal/disqus.html" . }}
-{{ end }}
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
