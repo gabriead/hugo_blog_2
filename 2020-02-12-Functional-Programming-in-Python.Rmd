@@ -28,7 +28,143 @@ output:
 ## Kontrollaufgabe 1.7
 
 ```{python}
+path = "/Users/AdrianG/Desktop/HS-Albstadt-Sigmaringen/Python_for_programming/Faust_complete.txt"
+b = open(path).read()
+c = open(path).readlines()
+c[:5]
+```
 
 
+
+## Enumerator vs. Map
+Consider you are getting a list of sentences and want to attach a line number to every sentence within the map. There are two possibilities to achieve that.
+```{python}
+txt = ['The Project Gutenberg EBook of Faust: Der Tragödie erster Teil, by \n', 'Johann Wolfgang von Goethe\n', '\n', '  Faust: Der Tragödie erster Teil\n', '\n']
+
+# 1. possibility => use an enumerator
+txt_with_line_numbers = list(enumerate(txt))
+#xt_with_line_numbers
+
+# 2. possibility => use map
+
+def mapL(func, *args):
+  return list(map(func, *args))
+
+compute_line_numbers= lambda x : mapL(lambda line_counter,line: (line_counter, line), range(len(x)), x)
+print(compute_line_numbers(txt))
 
 ```
+The important take away here is that you have to find a way of generating incrementing numbers within the map function. This is done by using the range function, which generates
+numbers from 0 to the length of the input.
+
+## Map vs. list comprehension
+Let's use the list we already know and pretend that we want to know the line which has the most words. How could we achieve that?
+```{python}
+txt = ['The Project Gutenberg EBook of Faust: Der Tragödie erster Teil, by \n', 'Johann Wolfgang von Goethe\n', '\n', '  Faust: Der Tragödie erster Teil\n', '\n']
+
+# 1. possibility => use map
+max(mapL(lambda line: (len(line), line), txt))
+
+# 2. possibility => use list comprehension
+max([(len(line), line) for line in txt])
+```
+We see that both methods output the same result. For me the main take away here is that you can use a tuple to store the relevant information
+and process this later on.
+Consider you want to retrieve the line that contains the most vowels that start with a small letter. To tell you the truth I don't see any good solution
+using `map` here.
+Let's see an example.
+```{python}
+txt = ['The Project Gutenberg EBook of Faust: Der Tragödie erster Teil, by \n', 'Johann Wolfgang von Goethe\n', '\n', '  Faust: Der Tragödie erster Teil\n', '\n']
+
+# 1. possibility => use list comprehension
+max([ (len([word for word in line.split() if word[0] in 'aeiou' and word.lower()]), line) for line in txt])
+```
+Consider now that you want to compute the line with the greatest average length of words per line.
+
+```{python}
+txt = ['The Project Gutenberg EBook of Faust: Der Tragödie erster Teil, by \n', 'Johann Wolfgang von Goethe\n', '\n', '  Faust: Der Tragödie erster Teil\n', '\n']
+
+# 1. possibility => use list comprehension
+from statistics import mean
+
+def myMean(aList):
+    if len(aList)>0:
+        return mean(aList)
+    else:
+        return 0
+
+max([ ( myMean([len(word) for word in line.split()]), line) for line in txt])
+
+# 2. possibility => use map
+max(mapL(lambda line: (myMean(mapL(len, line.split())), line), txt))
+```
+
+## `filter` function
+The `filter` function is written as filter(<predicate>, <sequence>).
+Looks more complicated than it is. Let's see a few examples.
+```{python}
+list(filter(lambda x: x%3==0, [1,2,3,4,5,6,7,8,9,10,11,12]))
+```
+As with map we can define a wrapper function that will make life easier for us.
+```{python}
+
+def myFilter(predicate, sequence):
+  return list(filter(predicate, sequence))
+  
+# We can also define it with a lambda function
+
+myFilter_lambda = lambda predicate , sequence: list(filter(predicate, sequence))
+
+myFilter(lambda x: x%2==0, [1,2,3,4,5,6])
+myFilter_lambda(lambda x: x%2==0, [1,2,3,4,5,6])
+```
+The best way to get familiar with functional style programming is by doing it.
+Let's consider some practical examples.
+```{python}
+
+def myFilter(predicate, sequence):
+  return list(filter(predicate, sequence))
+  
+# We can also define it with a lambda function
+
+myFilter_lambda = lambda predicate , sequence: list(filter(predicate, sequence))
+
+myFilter(lambda x: x%2==0, [1,2,3,4,5,6])
+myFilter_lambda(lambda x: x%2==0, [1,2,3,4,5,6])
+```
+
+
+## Nested for-loops with list comprehensions or `zip`
+
+
+```{python}
+[(x,y) for x in "hallo" for y in [1,2]]
+````
+
+## `reduce` Function
+The reduce function is another tool in functional programming. It lives in the `functools` package and has to be imported.
+This function combines the items of sequence one after the other.It goes from left to right.
+It can be written as reduce(function,sequence). Let's look at a few examples.
+
+```{python}
+from functools import reduce
+## Summing up all uneven numbers in a range
+reduce(lambda x,y: x+y , range(1,1000, 2))
+
+f = lambda x,y: x+'\n'+y
+reduce(f,['Erste Zeile', 'Zweite Zeile', 'Dritte Zeile'])
+
+````
+Let's reimplement the `min` and `max` function using `reduce`.
+
+
+```{python}
+from functools import reduce
+## Summing up all uneven numbers in a range
+reduce(lambda x,y: x+y , range(1,1000, 2))
+
+f = lambda x,y: x+'\n'+y
+reduce(f,['Erste Zeile', 'Zweite Zeile', 'Dritte Zeile'])
+
+````
+
